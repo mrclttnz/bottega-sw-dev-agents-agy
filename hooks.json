@@ -1,0 +1,17 @@
+{
+  "bottega-security-command-guard": {
+    "enabled": true,
+    "PreToolUse": [
+      {
+        "matcher": "run_command",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ -f \"$HOME/.gemini/config/plugins/bottega/scripts/pre-command-guard.sh\" ]; then bash \"$HOME/.gemini/config/plugins/bottega/scripts/pre-command-guard.sh\"; elif [ -f \"./scripts/pre-command-guard.sh\" ]; then bash \"./scripts/pre-command-guard.sh\"; elif [ -f \"../scripts/pre-command-guard.sh\" ]; then bash \"../scripts/pre-command-guard.sh\"; else python3 -c 'import json; print(json.dumps({\"decision\": \"allow\"}))'; fi",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

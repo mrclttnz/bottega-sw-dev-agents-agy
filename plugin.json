@@ -1,0 +1,12 @@
+{
+  "name": "bottega",
+  "displayName": "Bottega AI Software Engineering Team",
+  "version": "1.0.0",
+  "description": "Full-cycle, security-first AI software engineering team with adaptive complexity profiles (Spark, Forge, Citadel), from requirements discovery and architecture to DB design, implementation, QA, adversarial code review, AppSec auditing, and SRE deployment.",
+  "logo": "assets/logo.svg",
+  "suggestedPrompts": [
+    "Ho un'idea per una nuova applicazione: aiutami a fare il triage e definire i requisiti",
+    "Avvia il team Bottega per progettare l'architettura, il database e il threat model del progetto",
+    "Esegui una Security Review (OWASP Top 10) e una Adversarial Code Review sul codice attuale"
+  ]
+}
