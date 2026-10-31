@@ -73,3 +73,4 @@ To prevent context drift and avoid re-reading the entire repository at every ste
 | **`security-engineer`** | Threat modeling (Shift-Left) & OWASP/SAST/Secrets/Dependencies audit (Security Gate) | `docs/SECURITY_THREAT_MODEL.md`, `docs/SECURITY_AUDIT.md` |
 | **`code-reviewer`** | Adversarial spec & code review across 6 engineering dimensions | Structured Review Verdict (`APPROVE` / `BLOCK`) |
 | **`devops-sre`** | Hosting selection, hardened Docker/IaC, CI/CD pipelines, deployment & rollback runbooks | `Dockerfile`, CI/CD configs, `docs/DEPLOYMENT_RUNBOOK.md` |
+| **`docker-deploy-adapter`** | Zero-assumption production adaptation of local docker-compose for external Docker targets | `docker-compose.prod.yml`, `docs/DEPLOYMENT_DOCKER_EXTERNAL.md` |

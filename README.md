@@ -35,6 +35,7 @@
 | **`security-engineer`** | Principal AppSec & DevSecOps Engineer | STRIDE Threat Modeling (Shift-Left) & OWASP Top 10 / CWE Top 25 / Secrets / Supply-Chain Audit (Gate) | `docs/SECURITY_THREAT_MODEL.md`, `docs/SECURITY_AUDIT.md` |
 | **`code-reviewer`** | Adversarial Staff Reviewer | Independent review of specs and code diffs across 6 dimensions (`must-fix-now` vs `backlog`) | `APPROVE` / `BLOCK` Verdict |
 | **`devops-sre`** | Cloud Architect, DevOps & SRE | Hosting selection, hardened non-root `Dockerfile`, CI/CD pipelines with security gates, deployment runbooks | `Dockerfile`, CI/CD, `docs/DEPLOYMENT_RUNBOOK.md` |
+| **`docker-deploy-adapter`** | Docker Deployment & Production Specialist | Zero-assumption production adaptation of local `docker-compose.yml` for external Docker environments | `docker-compose.prod.yml`, `docs/DEPLOYMENT_DOCKER_EXTERNAL.md` |
 
 ---
 
@@ -84,9 +85,20 @@ bottega-agy/
 │   ├── code-reviewer/
 │   │   ├── SKILL.md
 │   │   └── references/review-rubric.md
-│   └── devops-sre/
+│   ├── devops-sre/
+│   │   ├── SKILL.md
+│   │   └── references/deployment-runbook-template.md
+│   └── docker-deploy-adapter/
 │       ├── SKILL.md
-│       └── references/deployment-runbook-template.md
+│       ├── references/
+│       │   ├── target-environments.md
+│       │   ├── verification-checklist.md
+│       │   └── templates/
+│       │       ├── docker-compose.prod.yml.template
+│       │       ├── Caddyfile.template
+│       │       └── env.production.example.template
+│       └── scripts/
+│           └── verify-docker-target.sh
 └── scripts/
     ├── install.sh             # Global plugin & workspace installer
     ├── pre-command-guard.sh   # PreToolUse hook handler (blocks destructive cmds & secret commits)

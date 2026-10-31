@@ -60,6 +60,10 @@ Ogni ruolo è accessibile sia come **Skill procedurale** (on-demand o guidata da
    - **File principali**: [SKILL.md](file:///home/marco/work/bottega-agy/skills/devops-sre/SKILL.md) · [devops-sre.md](file:///home/marco/work/bottega-agy/agents/devops-sre.md) · [deployment-runbook-template.md](file:///home/marco/work/bottega-agy/skills/devops-sre/references/deployment-runbook-template.md)
    - **Responsabilità**: guida la configurazione dell'hosting, realizza Dockerfile multi-stage non-root, configura pipeline CI/CD con security gate integrati, monitoraggio, healthcheck e runbook di rilascio/rollback.
 
+10. **Docker Deploy Adapter** *(Adattatore Deploy Docker Esterno)*
+    - **File principali**: [SKILL.md](file:///home/marco/work/bottega-agy/skills/docker-deploy-adapter/SKILL.md) · [target-environments.md](file:///home/marco/work/bottega-agy/skills/docker-deploy-adapter/references/target-environments.md) · [verification-checklist.md](file:///home/marco/work/bottega-agy/skills/docker-deploy-adapter/references/verification-checklist.md) · [verify-docker-target.sh](file:///home/marco/work/bottega-agy/skills/docker-deploy-adapter/scripts/verify-docker-target.sh)
+    - **Responsabilità**: adatta l'applicazione che gira con `docker-compose.yml` locale per la pubblicazione su un ambiente Docker esterno (VPS over SSH con reverse proxy TLS, Coolify/Portainer, PaaS o Swarm). Intervista l'utente sul target esterno, non prende iniziative arbitrarie in caso di dubbi e valida la configurazione end-to-end con script e checklist di verifica.
+
 ---
 
 ## 3. Regole Globali, Hook di Sicurezza e Script

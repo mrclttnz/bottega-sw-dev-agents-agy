@@ -1,0 +1,33 @@
+# Caddyfile Template for Production Reverse Proxy
+# Replaces localhost with your actual domain name.
+# Caddy automatically provisions and renews Let's Encrypt TLS certificates.
+
+{$APP_DOMAIN:app.yourdomain.com} {
+    # Security Headers
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    }
+
+    # Enable gzip & zstd compression
+    encode zstd gzip
+
+    # Reverse proxy to the application container on internal Docker network
+    reverse_proxy app:3000 {
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+    }
+
+    # Logging
+    log {
+        output file /data/access.log {
+            roll_size 10MiB
+            roll_keep 3
+        }
+    }
+}
