@@ -40,10 +40,13 @@ Check `docs/PROJECT_STATE.md` to match the testing effort to the application's p
 
 ---
 
-## Step 3: Execution & Evidence Verification (Gate 5)
+## Step 3: Execution, Evidence Verification & Test Plan Sync (Gate 5)
 
 1. Run the full test suite via `run_command`.
 2. If any test fails:
    - Determine whether the bug is in the application code or the test setup.
    - Fix or report the root cause and re-run until 100% of the test suite passes.
 3. Record the fresh test command output as **Evidence** and update `docs/PROJECT_STATE.md` (`Gate 5: Passed`).
+4. **Synchronize `docs/TEST_PLAN.md`**:
+   - Update the Traceability Matrix in `docs/TEST_PLAN.md` to reflect all newly created or updated test files, suites, and covered edge cases.
+   - Ensure `docs/TEST_PLAN.md` reflects the current, passing state of the test suite. Never leave test documentation disconnected from real test files.

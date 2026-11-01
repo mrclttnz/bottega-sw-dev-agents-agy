@@ -1,4 +1,4 @@
-# Bottega 6-Dimension Code Review Rubric
+# Bottega 7-Dimension Code Review Rubric
 
 ## Dimension 1: Correctness & Edge Cases (All Profiles)
 - Does the code accurately implement every requirement and acceptance criterion in `docs/PRD.md` / `docs/SPEC.md`?
@@ -30,3 +30,11 @@
 - Do tests assert meaningful behavior rather than tautologies or trivial mocks?
 - Are both happy-path and negative/error paths tested?
 - Is fresh command output proving 100% test pass included?
+
+## Dimension 7: Documentation & Specification Alignment (All Profiles)
+- Are all changes to endpoints, API contracts, payloads, and status codes updated in `docs/ARCHITECTURE.md`?
+- Are all changes to database tables, columns, indexes, and relations updated in `docs/DB_SCHEMA.md` (including Mermaid ERD)?
+- Is `docs/PROJECT_STATE.md` updated with the accurate status of vertical slices and tech decisions?
+- Are new environment variables and configuration parameters added to `.env.example` and `docs/DEPLOYMENT_RUNBOOK.md`?
+- Are code comments, docstrings, type definitions, and user guides (`README.md`) updated and consistent with the actual code?
+- **Finding Rule**: Outdated, contradictory, or missing documentation for new or modified code constitutes a blocking `must-fix-now` finding.

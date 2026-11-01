@@ -54,7 +54,7 @@ Ogni ruolo è accessibile sia come **Skill procedurale** (on-demand o guidata da
 
 8. **Code Reviewer** *(Adversarial Staff Engineer)*
    - **File principali**: [SKILL.md](file:///home/marco/work/bottega-agy/skills/code-reviewer/SKILL.md) · [code-reviewer.md](file:///home/marco/work/bottega-agy/agents/code-reviewer.md) · [review-rubric.md](file:///home/marco/work/bottega-agy/skills/code-reviewer/references/review-rubric.md)
-   - **Responsabilità**: revisione indipendente in sola lettura sui file sorgente; sfida le assunzioni nei documenti di specifica e valida i diff su 6 dimensioni qualitative, distinguendo tra blocchi critici (*must-fix-now*) e migliorie secondarie (*backlog*).
+   - **Responsabilità**: revisione indipendente in sola lettura sui file sorgente; sfida le assunzioni nei documenti di specifica e valida i diff su 7 dimensioni qualitative (incluso il rigido allineamento di documentazione, API contracts e schemi), distinguendo tra blocchi critici (*must-fix-now*) e migliorie secondarie (*backlog*).
 
 9. **DevOps & SRE**
    - **File principali**: [SKILL.md](file:///home/marco/work/bottega-agy/skills/devops-sre/SKILL.md) · [devops-sre.md](file:///home/marco/work/bottega-agy/agents/devops-sre.md) · [deployment-runbook-template.md](file:///home/marco/work/bottega-agy/skills/devops-sre/references/deployment-runbook-template.md)
@@ -68,7 +68,8 @@ Ogni ruolo è accessibile sia come **Skill procedurale** (on-demand o guidata da
 
 ## 3. Regole Globali, Hook di Sicurezza e Script
 
-- **Regole Core e Politica della Lingua ([AGENTS.md](file:///home/marco/work/bottega-agy/AGENTS.md))**:
+- **Regole Core, Allineamento Documentale e Politica della Lingua ([AGENTS.md](file:///home/marco/work/bottega-agy/AGENTS.md))**:
+  - **Doc-Code Sync (Allineamento Documentale Continuo)**: la documentazione tecnica (`docs/PROJECT_STATE.md`, `docs/ARCHITECTURE.md`, `docs/DB_SCHEMA.md`, `docs/PRD.md`/`docs/SPEC.md`, `docs/TEST_PLAN.md`, `docs/DEPLOYMENT_RUNBOOK.md`, `README.md` e docstring di codice) è considerata un artefatto di prima classe e deve essere aggiornata nello stesso ciclo di modifica di codice, database, configurazione o test. Un disallineamento tra codice e documentazione costituisce un difetto bloccante durante il code review.
   - Gli agenti conversano sempre nella stessa lingua usata dall'utente nel prompt.
   - La documentazione tecnica (`docs/*.md`), i diagrammi, gli schemi e il codice sorgente sono redatti in inglese (salvo diversa esplicita richiesta).
 - **Hook Automatico PreToolUse ([hooks.json](file:///home/marco/work/bottega-agy/hooks.json) + [pre-command-guard.sh](file:///home/marco/work/bottega-agy/scripts/pre-command-guard.sh))**:

@@ -15,9 +15,10 @@ review_schema = {
         "summary": {"type": "string"},
         "must_fix_now": {"type": "array", "items": {"type": "string"}},
         "backlog_nits": {"type": "array", "items": {"type": "string"}},
-        "evidence_checked": {"type": "string"}
+        "evidence_checked": {"type": "string"},
+        "documentation_aligned": {"type": "boolean"}
     },
-    "required": ["verdict", "summary", "must_fix_now", "evidence_checked"]
+    "required": ["verdict", "summary", "must_fix_now", "evidence_checked", "documentation_aligned"]
 }
 
 security_schema = {
@@ -38,8 +39,10 @@ tasks = [
         "prompt": (
             f"Perform an independent Adversarial Code Review for slice '{target_slice}' under Bottega profile '{profile}'. "
             "Read docs/PROJECT_STATE.md and inspect recent code changes and tests. "
-            "Check: 1) Correctness & Edge Cases, 2) Architecture & Modularity, 3) Error Handling, "
-            "4) Performance/Resource leaks, 5) Test Coverage & Quality. "
+            "Check 7 dimensions: 1) Correctness & Edge Cases, 2) Architecture & Modularity, 3) Error Handling, "
+            "4) Performance/Resource leaks, 5) Test Coverage & Quality, 6) Security & Data Safety, "
+            "7) Documentation & Specification Alignment (verify docs/ARCHITECTURE.md, docs/DB_SCHEMA.md, docs/PROJECT_STATE.md, "
+            ".env.example, and README match code changes). Flag missing/outdated documentation as must-fix-now. "
             "Return a structured verdict (APPROVE, APPROVE_WITH_NITS, or BLOCK)."
         ),
         "schema": review_schema,
@@ -74,6 +77,7 @@ gate_passed = (
     and sec_audit_res["verdict"] in ("PASS", "PASS_WITH_WARNINGS")
     and len(code_review_res.get("must_fix_now", [])) == 0
     and len(sec_audit_res.get("critical_or_high_findings", [])) == 0
+    and bool(code_review_res.get("documentation_aligned", True))
 )
 
 print({

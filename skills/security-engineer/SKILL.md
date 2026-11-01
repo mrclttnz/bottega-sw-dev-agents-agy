@@ -65,9 +65,12 @@ Inspect the codebase systematically across these dimensions:
 9. **A09 Security Logging & Monitoring Failures**: Logging plaintext passwords/tokens/PII, or missing audit logs on critical security events.
 10. **A10 Server-Side Request Forgery (SSRF)**: Unvalidated user URLs passed to `fetch`/`axios`/`requests`.
 
-### Step 3: Issue Verdict & Remediation (`docs/SECURITY_AUDIT.md`)
+### Step 3: Issue Verdict, Remediation & Continuous Security Doc Sync (`docs/SECURITY_AUDIT.md`)
 Write or update `docs/SECURITY_AUDIT.md` using [threat-model-and-audit-templates.md](./references/threat-model-and-audit-templates.md):
 - Classify every finding as `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, or `INFO`.
 - **Gate Rule**:
   - Any `CRITICAL` or `HIGH` finding (across **all profiles**, including `spark`) results in a **`BLOCK`** verdict with exact file:line locations and remediation instructions.
   - In `citadel` profile, unresolved `MEDIUM` findings without an explicit documented risk acceptance also result in **`BLOCK`**.
+- **Security Documentation Sync**:
+  - Update `docs/SECURITY_THREAT_MODEL.md` (or Threat Model section in `docs/ARCHITECTURE.md`) whenever trust boundaries, auth mechanisms, external APIs, or data flows are modified.
+  - Keep `docs/SECURITY_AUDIT.md` and `docs/PROJECT_STATE.md` synchronized after every security assessment or remediation pass.

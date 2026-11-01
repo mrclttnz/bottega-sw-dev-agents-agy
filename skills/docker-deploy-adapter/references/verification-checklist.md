@@ -49,3 +49,11 @@ Use this checklist to verify that the Docker configuration is 100% production-re
   # Run Bottega Docker verifier script
   ./skills/docker-deploy-adapter/scripts/verify-docker-target.sh docker-compose.prod.yml
   ```
+
+---
+
+## 5. Documentation & Environment Alignment
+- [ ] **Deployment Runbook**: `docs/DEPLOYMENT_DOCKER_EXTERNAL.md` accurately reflects the exact compose file, all services, ports, volume backup instructions, and step-by-step deploy commands.
+- [ ] **Production Env Template**: `.env.production.example` lists every required production variable with clear instructions and safe placeholder values.
+- [ ] **Project State Sync**: `docs/PROJECT_STATE.md` records the active target environment, architecture decisions, and verification sign-off.
+- [ ] **Zero Documentation Drift**: No differences exist between the actual compose configuration and the deployment guide.

@@ -50,3 +50,13 @@ Author `docs/DB_SCHEMA.md` using [db-schema-template.md](./references/db-schema-
 
 - Generate clean, reversible migration files (or ORM schema files) and verify they apply cleanly from an empty database.
 - Provide deterministic, synthetic seed data for development/testing (**never** real PII or production credentials).
+
+---
+
+## Step 4: Continuous Schema Documentation Sync
+
+- Whenever tables, columns, relations, indexes, or constraints are added, altered, or deprecated in migrations or ORM schemas, immediately synchronize `docs/DB_SCHEMA.md`:
+  - Update the Mermaid `erDiagram`.
+  - Update data dictionary tables and PII classification.
+  - Update index and constraint documentation.
+- Update `docs/PROJECT_STATE.md` to reflect the current schema version and migration status.

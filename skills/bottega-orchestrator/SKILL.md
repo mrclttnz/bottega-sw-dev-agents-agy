@@ -74,26 +74,28 @@ flowchart TD
 
 4. **Phase 4 — Vertical Slice Implementation**:
    - For each vertical slice, activate **`software-craftsman`** (or delegate via `invoke_subagent` with `TypeName: "software-craftsman"`).
-   - Enforce secure coding practices and require a pre-handoff **Self-Check** + **Execution Evidence** (build/linter output).
+   - Enforce secure coding practices, **continuous documentation alignment** (synchronizing `docs/ARCHITECTURE.md`, `docs/DB_SCHEMA.md`, `.env.example`, and `docs/PROJECT_STATE.md` with every code change), and require a pre-handoff **Self-Check** + **Execution Evidence** (build/linter output).
 
 5. **Phase 5 — Testing & QA Verification**:
    - Activate **`qa-engineer`** (or delegate via `invoke_subagent` with `TypeName: "qa-engineer"`).
    - Design and execute tests according to the active profile (`spark`: smoke/core validation; `forge`: unit + integration; `citadel`: unit + integration + E2E + security/authZ boundary tests).
+   - Keep `docs/TEST_PLAN.md` strictly aligned with test suites and scenarios implemented.
    - *Gate 5*: All tests pass with fresh command output captured as Evidence.
 
 6. **Phase 6 — Security Gate & Adversarial Code Review**:
    - Run the automated security scanner: `bash scripts/security-scan.sh <project_dir> <profile>`.
    - For `spark`: perform a concise combined Code & Security review pass.
    - For `forge` and `citadel`: spawn **`security-engineer`** and **`code-reviewer`** in isolated contexts (via `invoke_subagent` or via `run_workflow` using [review_and_security_gate.py](./scripts/review_and_security_gate.py)).
-   - *Gate 6 (Blocking)*: Zero `CRITICAL` or `HIGH` security vulnerabilities and zero `must-fix-now` code review blockers. If blocked, return to Phase 4 to remediate and re-verify.
+   - *Gate 6 (Blocking)*: Zero `CRITICAL` or `HIGH` security vulnerabilities, zero `must-fix-now` code review blockers, and 100% verified documentation alignment (code and specs/architecture/schema/runbooks match). If blocked, return to Phase 4 to remediate and re-verify.
 
 7. **Phase 7 — Deployment & SRE Readiness**:
    - Activate **`devops-sre`**.
-   - Help the user select the deployment target, create hardened `Dockerfile` / `docker-compose.yml` / IaC and CI/CD pipelines, configure health checks & secrets templates, and execute or verify the deployment (`docs/DEPLOYMENT_RUNBOOK.md`).
+   - Help the user select the deployment target, create hardened `Dockerfile` / `docker-compose.yml` / IaC and CI/CD pipelines, configure health checks & secrets templates, ensure `docs/DEPLOYMENT_RUNBOOK.md` is fully up-to-date, and execute or verify the deployment.
 
 ---
 
 ## Step 3: Verification & Handoff Rules
 
 - Never advance past a phase if its gate criteria fail.
+- **Continuous Documentation Alignment**: Never mark a phase, vertical slice, or refactor as `DONE` if technical documentation (`docs/PROJECT_STATE.md`, `docs/ARCHITECTURE.md`, `docs/DB_SCHEMA.md`, `docs/TEST_PLAN.md`, `docs/DEPLOYMENT_RUNBOOK.md`, `README.md`) is out of sync with code or configuration changes.
 - Always keep `docs/PROJECT_STATE.md` updated so the user can pause and resume at any time without losing context.

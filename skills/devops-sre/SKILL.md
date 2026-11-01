@@ -55,3 +55,12 @@ When generating CI/CD workflows (e.g., `.github/workflows/ci-cd.yml` or GitLab C
 1. Write `docs/DEPLOYMENT_RUNBOOK.md` using [deployment-runbook-template.md](./references/deployment-runbook-template.md).
 2. Verify the packaging/deployment locally (e.g., build the container image or start the local stack, verify `/healthz` responds with `200 OK`, and confirm zero secrets are baked into the image).
 3. Record verification command output as **Evidence** and update `docs/PROJECT_STATE.md` (`Gate 7: Verified`).
+
+---
+
+## Step 5: Continuous Deployment & Runbook Synchronization
+
+- Whenever container configurations, exposed ports, environment variables, secrets, build commands, or health checks change:
+  - Immediately update `docs/DEPLOYMENT_RUNBOOK.md`.
+  - Update `.env.example` and `docker-compose.prod.yml` to reflect all configuration changes.
+  - Sychronize deployment instructions in `README.md` if user-facing operational steps changed.

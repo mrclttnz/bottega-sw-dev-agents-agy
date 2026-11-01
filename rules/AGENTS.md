@@ -53,10 +53,19 @@ To prevent context drift and avoid re-reading the entire repository at every ste
    - **Input Validation & Parameterization**: Validate all untrusted inputs at boundaries using schema validators. Use parameterized queries / ORM bindings exclusively (zero string concatenation in SQL/OS commands).
    - **Least Privilege & Deny-by-Default AuthZ**: Every protected endpoint/action must verify both authentication (who you are) and authorization (resource ownership/role).
    - **Safe Error Handling**: Never leak stack traces, internal paths, or sensitive PII in client-facing error responses or logs.
-4. **Evidence-Based Completion Protocol**:
-   - Neither the main agent nor any subagent may report a coding, testing, or security task as `DONE` without providing **Evidence** (fresh command output from tests, build, linter, or security scan) and a **Self-Check** summary.
-5. **Independent Verification Gates**:
-   - In `forge` and `citadel` profiles, prefer delegating Code Review (`code-reviewer`) and Security Auditing (`security-engineer`) to isolated subagents (`invoke_subagent`) so the reviewer inspects the diff with fresh eyes, free from author bias.
+5. **Continuous Documentation Alignment (Doc-Code Sync)**:
+   - **Documentation as a First-Class Artifact**: Documentation is never an afterthought. Whenever changes are made to code, API endpoints, database models, configuration/environment variables, architecture, or test suites, the impacted documentation MUST be kept strictly aligned in the very same task/iteration.
+   - **Artifacts to Keep Synchronized**:
+     - Code/API changes $\rightarrow$ update `docs/ARCHITECTURE.md` (Mermaid diagrams, endpoint schemas, status codes), `docs/PROJECT_STATE.md` (slice status, decisions), `.env.example` (new env vars), and code-level comments/docstrings.
+     - Database/model changes $\rightarrow$ update `docs/DB_SCHEMA.md` (Mermaid ER diagram, field types, constraints, indexes, data classifications).
+     - Requirements/scope changes $\rightarrow$ update `docs/PRD.md` or `docs/SPEC.md` (user stories, Given/When/Then acceptance criteria).
+     - Test suite changes $\rightarrow$ update `docs/TEST_PLAN.md` (traceability matrix, covered edge cases).
+     - Deployment/infra changes $\rightarrow$ update `docs/DEPLOYMENT_RUNBOOK.md`, `docker-compose.prod.yml`, and `README.md`.
+   - **No Orphan Changes**: No feature, refactor, bug fix, or migration is considered complete until all impacted technical documentation and diagrams reflect the current reality of the system. Outdated documentation is treated as a blocking defect during review.
+6. **Evidence-Based Completion Protocol**:
+   - Neither the main agent nor any subagent may report a coding, testing, or security task as `DONE` without providing **Evidence** (fresh command output from tests, build, linter, or security scan), a **Self-Check** summary, and a list of synchronized documentation artifacts.
+7. **Independent Verification Gates**:
+   - In `forge` and `citadel` profiles, prefer delegating Code Review (`code-reviewer`) and Security Auditing (`security-engineer`) to isolated subagents (`invoke_subagent`) so the reviewer inspects the diff with fresh eyes, free from author bias, explicitly verifying both code correctness and documentation alignment.
 
 ---
 

@@ -177,7 +177,8 @@ Generate a clear, tailored markdown runbook for the user (e.g. `docs/DEPLOYMENT_
 4. **Verification & Smoke Test**:
    - `docker compose -f docker-compose.prod.yml ps`
    - `curl -Iv https://yourdomain.com/healthz`
-5. **Operational Runbook**:
+5. **Operational Runbook & Continuous Documentation Sync**:
    - Viewing logs: `docker compose -f docker-compose.prod.yml logs -f app`
    - Updating the application: pull changes and run `docker compose -f docker-compose.prod.yml up -d --build app`
    - Rollback and emergency stop procedures.
+   - **Continuous Alignment**: Whenever service definitions, ports, reverse proxy domains, volume mounts, or production environment variables change, immediately synchronize `docs/DEPLOYMENT_DOCKER_EXTERNAL.md` and `.env.production.example`. Never let deployment documentation drift from compose files.

@@ -60,3 +60,12 @@ Write the specification using [prd-template.md](./references/prd-template.md):
    - Data sensitivity and user roles/permissions are clearly defined.
    - No requirement is vague or untestable (e.g., replace *"the app should be fast"* with *"API responses < 300ms p95"*).
 2. Present a summary of the requirements to the user and ask for confirmation before updating `docs/PROJECT_STATE.md` (`Gate 1: Approved`).
+
+---
+
+## Step 5: Continuous Requirements & Scope Synchronization
+
+- Whenever scope evolves, features are added or removed, or acceptance criteria are refined during development:
+  - Immediately synchronize `docs/PRD.md` (or `docs/SPEC.md`).
+  - Update user story IDs and criteria to keep requirements aligned with implementation reality.
+  - Notify the team and reflect updates in `docs/PROJECT_STATE.md`.

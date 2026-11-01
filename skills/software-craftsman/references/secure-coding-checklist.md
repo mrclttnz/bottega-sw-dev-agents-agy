@@ -25,3 +25,11 @@ Every implementation slice must pass this self-check before handoff to `qa-engin
 - [ ] Untrusted strings rendered in UI are properly escaped; dangerous APIs (`dangerouslySetInnerHTML`, `v-html`, `innerHTML`) are avoided or sanitized with DOMPurify.
 - [ ] Error responses return safe HTTP status codes (`400`, `401`, `403`, `404`, `422`, `429`, `500`) without exposing internal stack traces, SQL errors, or file paths.
 - [ ] External API/DB calls configure explicit timeouts and resource cleanup.
+
+## 5. Documentation & Specification Alignment (Mandatory for All Profiles)
+- [ ] **Architecture & API Contracts**: `docs/ARCHITECTURE.md` updated with any new/modified endpoints, payloads, HTTP status codes, or component interactions.
+- [ ] **Data Model & Schema**: `docs/DB_SCHEMA.md` (and Mermaid ERD) updated with any new/modified tables, fields, constraints, or indexes.
+- [ ] **Configuration & Environment**: Any new environment variable is added to `.env.example` with safe placeholder documentation.
+- [ ] **Project State Tracking**: `docs/PROJECT_STATE.md` updated with the latest slice implementation status and architectural decisions.
+- [ ] **Code-Level Documentation**: Docstrings, JSDoc/type definitions, and comments match the real behavior of the modified functions/classes.
+- [ ] **Public Guides**: `README.md` or user documentation updated if public CLI flags, setup instructions, or dependencies changed.

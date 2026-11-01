@@ -29,14 +29,14 @@
 - **Deployment Runbook**: `docs/DEPLOYMENT_RUNBOOK.md` — `[Not Started | Ready]`
 
 ## 4. Vertical Slices & Implementation Backlog
-| Slice ID | Feature / Module | Owner Role | Dev Status | QA Status | Review & Sec Gate |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| `S1` | Foundation & Auth | `software-craftsman` | `TODO` | `TODO` | `TODO` |
+| Slice ID | Feature / Module | Owner Role | Dev Status | Docs Sync | QA Status | Review & Sec Gate |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `S1` | Foundation & Auth | `software-craftsman` | `TODO` | `TODO` | `TODO` | `TODO` |
 
 ## 5. Quality & Security Gate Log
 - **[ ] Gate 1 (Requirements Approved)**:
 - **[ ] Gate 2 (Architecture & Threat Model Approved)**:
 - **[ ] Gate 3 (DB Schema & Modules Approved)**:
-- **[ ] Gate 5 (Automated Tests Passing — Evidence Recorded)**:
-- **[ ] Gate 6 (Security Audit & Adversarial Code Review Passed)**:
-- **[ ] Gate 7 (Deployment Verified)**:
+- **[ ] Gate 5 (Automated Tests Passing — Evidence Recorded & Test Plan Synced)**:
+- **[ ] Gate 6 (Security Audit & Adversarial Code Review Passed — Zero Blocker & Docs Aligned)**:
+- **[ ] Gate 7 (Deployment Verified & Runbook Synced)**:

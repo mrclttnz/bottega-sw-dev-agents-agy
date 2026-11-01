@@ -60,3 +60,12 @@ Verify that:
 - Every functional & non-functional requirement in `docs/PRD.md` maps to a module or component.
 - Trust boundaries and authentication/authorization flows are explicitly designed.
 - Update `docs/PROJECT_STATE.md` once the user approves the architecture.
+
+---
+
+## Step 5: Continuous Architecture & Contract Alignment
+
+- Whenever software modules, API contracts, communication protocols, or external integrations change during development or refactoring:
+  - Immediately update `docs/ARCHITECTURE.md` (Mermaid diagrams, endpoint schemas, payloads, error responses).
+  - Record major architectural decisions as new or updated ADRs in `docs/adr/`.
+  - Sychronize `docs/PROJECT_STATE.md` to reflect current architectural reality.
