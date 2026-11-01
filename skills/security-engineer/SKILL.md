@@ -71,6 +71,7 @@ Write or update `docs/SECURITY_AUDIT.md` using [threat-model-and-audit-templates
 - **Gate Rule**:
   - Any `CRITICAL` or `HIGH` finding (across **all profiles**, including `spark`) results in a **`BLOCK`** verdict with exact file:line locations and remediation instructions.
   - In `citadel` profile, unresolved `MEDIUM` findings without an explicit documented risk acceptance also result in **`BLOCK`**.
-- **Security Documentation Sync**:
+- **Security Documentation & Backlog Sync**:
   - Update `docs/SECURITY_THREAT_MODEL.md` (or Threat Model section in `docs/ARCHITECTURE.md`) whenever trust boundaries, auth mechanisms, external APIs, or data flows are modified.
   - Keep `docs/SECURITY_AUDIT.md` and `docs/PROJECT_STATE.md` synchronized after every security assessment or remediation pass.
+  - When non-blocking `LOW` or `INFO` hardening recommendations are identified and the project uses GitHub Issues, offer to track them as GitHub Issues (`type:security`, `priority:low`) via the **`github-issue-manager`** skill.

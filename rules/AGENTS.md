@@ -35,11 +35,12 @@ Guardrails, documentation depth, architecture ceremony, testing rigor, and secur
 
 ---
 
-## 4. Index-First Context Architecture (`docs/PROJECT_STATE.md`)
+## 4. Index-First Context Architecture (`docs/PROJECT_STATE.md`) & GitHub Issues Linkage
 
 To prevent context drift and avoid re-reading the entire repository at every step:
 - Maintain a lightweight index file at `docs/PROJECT_STATE.md` in the target project.
-- It records: **Active Profile** (`spark` | `forge` | `citadel`), **Current Phase**, **Tech Stack Decisions**, **Artifact Index** (links to specs/schemas), **Slice Status**, and **Quality/Security Gate Sign-offs**.
+- It records: **Active Profile** (`spark` | `forge` | `citadel`), **Current Phase**, **Tech Stack Decisions**, **Artifact Index** (links to specs/schemas and optional GitHub Issues backlog), **Slice Status** (with linked GitHub Issue `#ID`s when applicable), and **Quality/Security Gate Sign-offs**.
+- When GitHub Issues are used for backlog management (`github-issue-manager`), **GitHub Issues act as the dynamic work-item backlog**, while `docs/PROJECT_STATE.md` and `docs/*.md` remain the **architectural source of truth**. Every issue promoted to active development must be linked to a Vertical Slice in `docs/PROJECT_STATE.md` and must pass all profile gates (including **Continuous Documentation Alignment**) before closure.
 - Before starting any phase or delegating to a subagent, read `docs/PROJECT_STATE.md` first and pass only the relevant context slice to subagents.
 
 ---
@@ -83,3 +84,4 @@ To prevent context drift and avoid re-reading the entire repository at every ste
 | **`code-reviewer`** | Adversarial spec & code review across 6 engineering dimensions | Structured Review Verdict (`APPROVE` / `BLOCK`) |
 | **`devops-sre`** | Hosting selection, hardened Docker/IaC, CI/CD pipelines, deployment & rollback runbooks | `Dockerfile`, CI/CD configs, `docs/DEPLOYMENT_RUNBOOK.md` |
 | **`docker-deploy-adapter`** | Zero-assumption production adaptation of local docker-compose for external Docker targets | `docker-compose.prod.yml`, `docs/DEPLOYMENT_DOCKER_EXTERNAL.md` |
+| **`github-issue-manager`** | GitHub Issues backlog management (`gh` CLI), standardized label taxonomy, Issue Forms (`.yml`), legacy markdown migration, Issue-to-Slice linkage, and review backlog sync | `.github/ISSUE_TEMPLATE/*.yml`, GitHub Issues & Labels |

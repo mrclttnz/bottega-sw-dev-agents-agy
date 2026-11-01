@@ -38,6 +38,7 @@
 | **`code-reviewer`** | Adversarial Staff Reviewer | Independent review of specs and code diffs across 7 dimensions (`must-fix-now` vs `backlog`, including doc sync) | `APPROVE` / `BLOCK` Verdict |
 | **`devops-sre`** | Cloud Architect, DevOps & SRE | Hosting selection, hardened non-root `Dockerfile`, CI/CD pipelines with security gates, deployment runbooks | `Dockerfile`, CI/CD, `docs/DEPLOYMENT_RUNBOOK.md` |
 | **`docker-deploy-adapter`** | Docker Deployment & Production Specialist | Zero-assumption production adaptation of local `docker-compose.yml` for external Docker environments | `docker-compose.prod.yml`, `docs/DEPLOYMENT_DOCKER_EXTERNAL.md` |
+| **`github-issue-manager`** | GitHub Issues & Backlog Specialist | Standardized label taxonomy, GitHub Issue Forms (`.yml`), static backlog migration (`suggerimenti.md`/`TODO.md`), Issue-to-Slice linkage, and review backlog sync | `.github/ISSUE_TEMPLATE/*.yml`, GitHub Issues & Labels |
 
 ---
 
@@ -90,17 +91,28 @@ bottega-agy/
 │   ├── devops-sre/
 │   │   ├── SKILL.md
 │   │   └── references/deployment-runbook-template.md
-│   └── docker-deploy-adapter/
+│   ├── docker-deploy-adapter/
+│   │   ├── SKILL.md
+│   │   ├── references/
+│   │   │   ├── target-environments.md
+│   │   │   ├── verification-checklist.md
+│   │   │   └── templates/
+│   │   │       ├── docker-compose.prod.yml.template
+│   │   │       ├── Caddyfile.template
+│   │   │       └── env.production.example.template
+│   │   └── scripts/
+│   │       └── verify-docker-target.sh
+│   └── github-issue-manager/
 │       ├── SKILL.md
 │       ├── references/
-│       │   ├── target-environments.md
-│       │   ├── verification-checklist.md
-│       │   └── templates/
-│       │       ├── docker-compose.prod.yml.template
-│       │       ├── Caddyfile.template
-│       │       └── env.production.example.template
+│       │   ├── label-taxonomy.md
+│       │   └── issue-templates/
+│       │       ├── config.yml
+│       │       ├── feature_request.yml
+│       │       ├── bug_report.yml
+│       │       └── tech_debt_security.yml
 │       └── scripts/
-│           └── verify-docker-target.sh
+│           └── gh-issue-bootstrap.sh
 └── scripts/
     ├── install.sh             # Global plugin & workspace installer
     ├── pre-command-guard.sh   # PreToolUse hook handler (blocks destructive cmds & secret commits)

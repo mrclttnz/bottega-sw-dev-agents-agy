@@ -27,11 +27,12 @@
 - **Test Plan**: `docs/TEST_PLAN.md` — `[Not Started | Draft | Approved]`
 - **Security Audit Report**: `docs/SECURITY_AUDIT.md` — `[Not Started | Pass | Blocked]`
 - **Deployment Runbook**: `docs/DEPLOYMENT_RUNBOOK.md` — `[Not Started | Ready]`
+- **Issue Tracker / Backlog**: `GitHub Issues (<owner>/<repo>)` — `[Not Configured | Active]`
 
 ## 4. Vertical Slices & Implementation Backlog
-| Slice ID | Feature / Module | Owner Role | Dev Status | Docs Sync | QA Status | Review & Sec Gate |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `S1` | Foundation & Auth | `software-craftsman` | `TODO` | `TODO` | `TODO` | `TODO` |
+| Slice ID | Issue Ref | Feature / Module | Owner Role | Dev Status | Docs Sync | QA Status | Review & Sec Gate |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `S1` | `N/A` | Foundation & Auth | `software-craftsman` | `TODO` | `TODO` | `TODO` | `TODO` |
 
 ## 5. Quality & Security Gate Log
 - **[ ] Gate 1 (Requirements Approved)**:

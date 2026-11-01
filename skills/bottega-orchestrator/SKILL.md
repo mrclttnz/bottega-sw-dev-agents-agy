@@ -92,6 +92,11 @@ flowchart TD
    - Activate **`devops-sre`**.
    - Help the user select the deployment target, create hardened `Dockerfile` / `docker-compose.yml` / IaC and CI/CD pipelines, configure health checks & secrets templates, ensure `docs/DEPLOYMENT_RUNBOOK.md` is fully up-to-date, and execute or verify the deployment.
 
+8. **Cross-Phase Backlog & Issue Management (`github-issue-manager`)**:
+   - Whenever the user wants to set up GitHub Issues, migrate a static backlog file (e.g., `suggerimenti.md` or `TODO.md`), capture a new idea/bug without derailing current work, or pick up an existing GitHub Issue `#ID` for implementation, activate **`github-issue-manager`**.
+   - Link every active GitHub Issue `#ID` to a Vertical Slice row (`Issue Ref` column) in `docs/PROJECT_STATE.md`.
+   - Before closing an issue (via `Closes #ID` commit or `gh issue close`), enforce the same profile gates: passing tests with **Evidence**, **Continuous Documentation Alignment** across all affected `docs/*.md`, and Phase 6 review sign-off.
+
 ---
 
 ## Step 3: Verification & Handoff Rules

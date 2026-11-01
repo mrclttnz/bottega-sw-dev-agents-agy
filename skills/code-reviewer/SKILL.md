@@ -52,3 +52,6 @@ Conclude with an explicit Verdict:
 - **`APPROVE`**: Zero `must-fix-now` items and zero `backlog` items.
 - **`APPROVE_WITH_NITS`**: Zero `must-fix-now` items; only non-blocking `backlog` suggestions.
 - **`BLOCK`**: One or more `must-fix-now` items exist. List exact `file:line` references and concrete fix instructions.
+
+### Step 4: Backlog Sync with GitHub Issues (Optional Post-Review Follow-Up)
+When the verdict is `APPROVE_WITH_NITS` (or when `backlog` items are identified) and the project uses GitHub Issues, offer to convert those non-blocking `backlog` items into tracked GitHub Issues (`type:refactor`, `type:docs`, or `type:enhancement`) via the **`github-issue-manager`** skill so technical debt is never lost in chat history.

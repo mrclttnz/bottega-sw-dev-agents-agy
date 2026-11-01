@@ -23,6 +23,7 @@ install_global() {
   cp -rf "$REPO_ROOT/agents" "$plugin_dir/"
   cp -rf "$REPO_ROOT/scripts" "$plugin_dir/"
   chmod +x "$plugin_dir/scripts/"*.sh
+  find "$plugin_dir/skills" -type f -name "*.sh" -exec chmod +x {} +
 
   # If Antigravity Language Server is reachable, enable the plugin live via RPC
   if [[ -n "${ANTIGRAVITY_CSRF_TOKEN:-}" ]]; then
@@ -49,6 +50,7 @@ install_workspace() {
   cp -f "$REPO_ROOT/hooks.json" "$ws_dir/.agents/hooks.json"
   mkdir -p "$ws_dir/.agents/skills"
   cp -rf "$REPO_ROOT/skills/"* "$ws_dir/.agents/skills/"
+  find "$ws_dir/.agents/skills" -type f -name "*.sh" -exec chmod +x {} +
   if [[ "$ws_dir" != "$REPO_ROOT" ]]; then
     mkdir -p "$ws_dir/scripts"
     cp -f "$REPO_ROOT/scripts/pre-command-guard.sh" "$ws_dir/scripts/"

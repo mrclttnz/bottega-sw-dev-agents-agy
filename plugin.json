@@ -7,6 +7,7 @@
   "suggestedPrompts": [
     "Ho un'idea per una nuova applicazione: aiutami a fare il triage e definire i requisiti",
     "Avvia il team Bottega per progettare l'architettura, il database e il threat model del progetto",
+    "Configura le GitHub Issues sul repository e migra i punti aperti dal backlog statico",
     "Esegui una Security Review (OWASP Top 10) e una Adversarial Code Review sul codice attuale"
   ]
 }
