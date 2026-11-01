@@ -40,7 +40,7 @@ Guardrails, documentation depth, architecture ceremony, testing rigor, and secur
 To prevent context drift and avoid re-reading the entire repository at every step:
 - Maintain a lightweight index file at `docs/PROJECT_STATE.md` in the target project.
 - It records: **Active Profile** (`spark` | `forge` | `citadel`), **Current Phase**, **Tech Stack Decisions**, **Artifact Index** (links to specs/schemas and optional GitHub Issues backlog), **Slice Status** (with linked GitHub Issue `#ID`s when applicable), and **Quality/Security Gate Sign-offs**.
-- When GitHub Issues are used for backlog management (`github-issue-manager`), **GitHub Issues act as the dynamic work-item backlog**, while `docs/PROJECT_STATE.md` and `docs/*.md` remain the **architectural source of truth**. Every issue promoted to active development must be linked to a Vertical Slice in `docs/PROJECT_STATE.md` and must pass all profile gates (including **Continuous Documentation Alignment**) before closure.
+- When GitHub Issues are used for backlog management (`github-issue-manager`), **GitHub Issues act as the dynamic work-item backlog**, while `docs/PROJECT_STATE.md` and `docs/*.md` remain the **architectural source of truth**. Every issue promoted to active development must be linked to a Vertical Slice in `docs/PROJECT_STATE.md`, pass all profile gates (including **Continuous Documentation Alignment**), include a detailed completion comment on GitHub, and obtain explicit user confirmation before closure.
 - Before starting any phase or delegating to a subagent, read `docs/PROJECT_STATE.md` first and pass only the relevant context slice to subagents.
 
 ---
